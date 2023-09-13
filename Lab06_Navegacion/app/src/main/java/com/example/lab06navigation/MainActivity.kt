@@ -17,10 +17,8 @@ import com.example.lab06navigation.navegation.model.Screen
 import com.example.lab06navigation.ui.theme.Lab06NavigationTheme
 import com.example.lab06navigation.ui.concerts.view.DisplayConcerts
 import com.example.lab06navigation.ui.detail.view.ConcertDetail
-
-const val CONCERT_ROUTE = "concert"
-const val DETAIL_ROUTE = "concert_detail/{concertId}"
-
+import com.example.lab06navigation.ui.favorites.view.ConcertPlacesList
+import com.example.lab06navigation.ui.profile.viewmodel.UserProfileViewModel
 
 @Composable
 fun AppNavigator() {
@@ -42,6 +40,9 @@ fun AppNavigator() {
 }
 
 class MainActivity : ComponentActivity() {
+
+    private val userProfileViewModel = UserProfileViewModel()
+
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +52,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    AppNavigator()
+                    //AppNavigator() - PARA EL NAVIGATION DE CARDS Y DETAIL
+                    //UserProfile(userProfileViewModel) - PANTALLA DE PERFIL
+                    ConcertPlacesList()
                 }
             }
         }
