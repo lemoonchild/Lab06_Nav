@@ -33,12 +33,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.lab06navigation.R
 import com.example.lab06navigation.ui.profile.viewmodel.UserProfileViewModel
 
 @Composable
-fun UserProfile(viewModel: UserProfileViewModel) {
+fun UserProfile(navController: NavController) {
 
+    val viewModel: UserProfileViewModel = viewModel()
     val userName = viewModel.userName.value
 
     Column(
@@ -144,7 +147,7 @@ fun ProfileOption(
         Icon(
             imageVector = trailingIcon ?: Icons.Default.ArrowDropDown,
             contentDescription = null,
-            modifier = Modifier.rotate(180f) // Para qye el triangulo apunte hacia arriba
+            modifier = Modifier.rotate(180f) // Para que el triangulo apunte hacia arriba
             )
         }
     }
