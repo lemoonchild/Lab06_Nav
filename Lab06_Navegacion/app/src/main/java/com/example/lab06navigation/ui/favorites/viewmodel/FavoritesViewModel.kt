@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.lab06navigation.R
 import com.example.lab06navigation.ui.concerts.viewmodel.Concert
 
+//Lista de conciertos a mostrar en pantalla de Favoritos
 class ConcertPlacesViewModel : ViewModel() {
     fun getFavoritesConcerts(): List<Concert> {
         return listOf(

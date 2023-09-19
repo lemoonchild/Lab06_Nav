@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.lab06navigation.navegation.model.Screen
-import com.example.lab06navigation.ui.concerts.viewmodel.ConcertsViewModel
 import com.example.lab06navigation.ui.concerts.viewmodel.Concert
 import com.example.lab06navigation.ui.concerts.viewmodel.ConcertsViewModel.ConcertRepository
 

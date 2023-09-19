@@ -30,12 +30,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.lab06navigation.ui.concerts.viewmodel.Concert
 import com.example.lab06navigation.ui.favorites.viewmodel.ConcertPlacesViewModel
 
 @Composable
-fun ConcertPlacesList(viewModel: ConcertPlacesViewModel = viewModel()) {
-    // Observamos los datos del ViewModel
+fun ConcertPlacesList(navController: NavController ) {
+
+    val viewModel: ConcertPlacesViewModel = viewModel()
+    // Datos del ViewModel
     val concerts = viewModel.getFavoritesConcerts()
 
     Column(

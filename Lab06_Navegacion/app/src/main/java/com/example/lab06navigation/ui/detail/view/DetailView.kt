@@ -33,11 +33,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.lab06navigation.ui.detail.viewmodel.ConcertDetailViewModel
 
 
 @Composable
-fun ConcertDetail(concertId: String) {
+fun ConcertDetail(concertId: String, navController: NavController) {
 
     val viewModel: ConcertDetailViewModel = viewModel()
     val concert = viewModel.getConcertById(concertId)
@@ -72,7 +73,8 @@ fun ConcertDetail(concertId: String) {
                 // Botón de flecha para regresar
                 IconButton(
                     onClick = {
-                        Log.d("ConcertClick", "Regresa") //FUNCIONA MAMAHUEVO
+                        //Regresa a pantalla de conciertos
+                        navController.popBackStack()
                     }
                 ) {
                     Icon(Icons.Filled.ArrowBack, contentDescription = "Back", tint = Color.Black)
