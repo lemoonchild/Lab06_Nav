@@ -73,6 +73,7 @@ fun ConcertDetail(concertId: String, navController: NavController) {
                 // Botón de flecha para regresar
                 IconButton(
                     onClick = {
+                        //Regresa a pantalla de conciertos
                         navController.popBackStack()
                     }
                 ) {

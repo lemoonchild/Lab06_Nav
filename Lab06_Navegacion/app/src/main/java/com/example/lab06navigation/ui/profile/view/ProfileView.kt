@@ -147,7 +147,7 @@ fun ProfileOption(
         Icon(
             imageVector = trailingIcon ?: Icons.Default.ArrowDropDown,
             contentDescription = null,
-            modifier = Modifier.rotate(180f) // Para que el triangulo apunte hacia arriba
+            modifier = Modifier.rotate(180f)
             )
         }
     }

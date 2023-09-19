@@ -27,9 +27,10 @@ import com.example.lab06navigation.ui.favorites.view.ConcertPlacesList
 import com.example.lab06navigation.ui.profile.view.UserProfile
 import com.example.lab06navigation.ui.profile.viewmodel.UserProfileViewModel
 
+// Navegador principal para la aplicación
 @Composable
 fun AppNavigator(navController: NavHostController) {
-
+    // Define las rutas y sus destinos para la navegación
     NavHost(navController, startDestination = TabScreen.Navigator.route) {
         composable(TabScreen.Navigator.route) {
             DisplayConcerts(navController)
@@ -51,11 +52,13 @@ fun AppNavigator(navController: NavHostController) {
     }
 }
 
+// Función para crear las pestañas de navegación
 @Composable
 fun TabNavigations(navController: NavController) {
     val currentRoute = currentRoutes(navController)
     val TabScreens =listOf(TabScreen.Navigator, TabScreen.UserProfile, TabScreen.ConcertPlaces)
 
+    // Crea una fila de pestañas basada en las rutas definidas
     TabRow(selectedTabIndex = TabScreens.indexOfFirst { it.route == currentRoute }.takeIf { it >= 0 } ?: 0){
 
         TabScreens.forEach { screen ->
@@ -75,23 +78,23 @@ fun TabNavigations(navController: NavController) {
 
 }
 
+// Obtiene la ruta actual del NavController
 @Composable
 fun currentRoutes(navController: NavController): String?{
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     return navBackStackEntry?.destination?.route
 }
 
+// Contiene la estructura general de las pantallas
 @Composable
 fun ScreensContent(){
     val navController: NavHostController = rememberNavController()
     Column() {
-        TabNavigations(navController)
-        AppNavigator(navController)
+        TabNavigations(navController) // Muestra las pestañas de navegación
+        AppNavigator(navController) // Muestra el contenido basado en la navegación
     }
 }
 class MainActivity : ComponentActivity() {
-
-    private val userProfileViewModel = UserProfileViewModel()
 
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,6 +105,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    // Llama a la función que contiene la estructura de las pantallas
                     ScreensContent()
                 }
             }
